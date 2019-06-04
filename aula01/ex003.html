@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">    
+    <title>Aula 02 - JS</title>
+    <link href="estilo.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <h1>Olá, mundo!</h1>
+    <p>
+        <h4>Strings</h4>
+    </p>
+    <script>
+        var nome = window.prompt("Digite seu nome:")
+        document.writeln(`Seu nome: ${nome.toUpperCase()} tem ${nome.length} letras`)
+        var salario = 2500
+        document.writeln(`<br>Seu salário é ${salario.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}`)
+    </script>
+</body>
+</html>
