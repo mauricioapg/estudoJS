@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">    
+    <title>Aula 02 - JS</title>
+    <link href="estilo.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <h1>Olá, mundo!</h1>
+    <p>
+        <h4>Operadores</h4>
+    </p>
+    <script>
+        var operacao = window.prompt('Digite uma operação Aritmética:').toUpperCase()
+        var valorA = Number(window.prompt('Digite o valor A:'))
+        var valorB = Number(window.prompt('Digite o valor B:'))
+        var resultado
+        if(operacao == "SOMA"){
+            resultado = valorA + valorB         
+        }
+        else if(operacao == "SUBTRAÇÃO" || operacao == "SUBTRACAO"){
+            resultado = valorA - valorB
+        }
+        else if(operacao == "MULTIPLICAÇÃO" || operacao == "MULTIPLICACAO"){
+            resultado = valorA * valorB
+        }
+        else if(operacao == "DIVISAO" || operacao == "DIVISÃO"){
+            resultado = valorA / valorB
+        }
+        var potencia = resultado ** 2
+        var expressao = (valorA + valorB) * (resultado / potencia)
+        
+        document.writeln(`A operação escolhida foi ${operacao}<br>`)
+        document.writeln(`<br> Os valores foram: ${valorA} e ${valorB}<br>`)
+        document.writeln(`<br>O resultado foi: ${resultado}<br>`)
+        resultado % 2 == 0?document.writeln(`<br>O resultado é par<br>`):document.writeln(`<br>O resultado é ímpar<br>`) //operadores ternários ? :
+        document.writeln(`<br>${resultado} elevado a 2 é: ${potencia}<br>`)
+        document.writeln(`<br>Expessão numérica (${valorA} + ${valorB}) * (${resultado} / ${potencia}) = ${expressao}`)
+    </script>
+</body>
+</html>

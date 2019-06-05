@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula JS</title>
+    <link href="estilo.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <h1>Olá, mundo!</h1>
+    <h4>Eventos DOM</h4>
+    <p>Cálculo de IMC</p>
+    <p><input type="number" name="txtPeso" id="txtPeso" placeholder="Informe seu peso"></p>
+    <p><input type="number" name="txtAltura" id="txtAltura" placeholder="Informe sua altura"></p>
+    <p><input type="button" value="Calcular" onclick="calcular()"></p>
+    <div id="area"></div>
+    <script>
+        function calcular() {
+            var txtPeso = document.getElementById('txtPeso')
+            var txtAltura = document.getElementById('txtAltura')
+            var resultado = document.getElementById('area')
+            var peso = Number(txtPeso.value)
+            var altura = Number(txtAltura.value)
+            var calculoFinal = peso / (altura ** 2)
+            resultado.innerText = `Altura: ${altura} cm   /   Peso: ${peso} kg   /   Seu IMC é: ${calculoFinal}`
+        }
+    </script>
+</body>
+
+</html>

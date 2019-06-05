@@ -8,3 +8,12 @@ body{
 h1{
     color: yellow;
 }
+
+h4{
+    color: yellowgreen;
+    size: 15px;
+}
+
+h3{
+    color: burlywood;
+}
