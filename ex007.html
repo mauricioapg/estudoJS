@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula JS</title>
+    <link href="estilo2.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <h1>Estudo de JS</h1>
+    <h2></h2>
+    <!--Saudação muda de acordo com o horário (bom dia, boa tarde, boa noite)-->
+    <h3>Escolha de programas:</h3>
+    <p>
+        <input class="botoes" type="button" id="calcIMC" onclick=" exibirTelaIMC()" value="Cálculo de IMC">
+    </p>
+    <p>
+        <input class="botoes" type="button" id="calcNotas" onclick="exibirTelaNotas()" value="Cálculo de Notas">
+    </p>
+    <p>
+        <input class="botoes" type="button" id="opMath" onclick="exibirTelaOperacoes()" value="Operações Matemáticas">
+    </p>
+    <h5>-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    </h5>
+    <div id="execCalcIMC">
+        <h4>Calcule seu IMC</h4>
+        <p><input type="number" name="txtPeso" id="txtPeso" placeholder="Informe seu peso"></p>
+        <p><input type="number" name="txtAltura" id="txtAltura" placeholder="Informe sua altura"></p>
+        <p><input type="button" style="background-color: blue;color: white  " value="Calcular IMC" onclick="calcularIMC()">
+        </p>
+        <h4 id="resultado"></h4>
+        <strong>
+            <h4 id="diagnostico"></h4>
+        </strong>
+    </div>
+    <div id="execCalcNotas">
+        <h4>Calcule suas Notas</h4>
+        <p><input type="number" id="txtNota1" placeholder="Nota 1"></p>
+        <p><input type="number" id="txtNota2" placeholder="Nota 2"></p>
+        <p><input type="number" id="txtNota3" placeholder="Nota 3"></p>
+        <p><input type="button" style="background-color: blue;color: white  " value="Calcular Média" onclick="calcularIMC()">
+    </div>
+    <div id="execOperacoes">
+        <h4>Faça operações matemáticas</h4>
+    </div>
+
+    <script>
+        function exibirTelaIMC() {
+            document.getElementById('execCalcNotas').style.display = 'none'
+            document.getElementById('execOperacoes').style.display = 'none'
+            var estadoDivIMC = document.getElementById('execCalcIMC').style.display
+            if (estadoDivIMC == 'none') {
+                document.getElementById('execCalcIMC').style.display = 'block'
+            }
+            else {
+                document.getElementById('execCalcIMC').style.display = 'none'
+            }
+        }
+    </script>
+
+    <script>
+        function exibirTelaNotas() {
+            document.getElementById('execCalcIMC').style.display = 'none'
+            document.getElementById('execOperacoes').style.display = 'none'
+            var estadoDivNotas = document.getElementById('execCalcNotas').style.display
+            if (estadoDivNotas == 'none') {
+                document.getElementById('execCalcNotas').style.display = 'block'
+            }
+            else {
+                document.getElementById('execCalcNotas').style.display = 'none'
+            }
+        }
+    </script>
+
+    <script>
+        function exibirTelaOperacoes() {
+            document.getElementById('execCalcNotas').style.display = 'none'
+            document.getElementById('execCalcIMC').style.display = 'none'
+            var estadoDivOperacoes = document.getElementById('execOperacoes').style.display
+            if (estadoDivOperacoes == 'none') {
+                document.getElementById('execOperacoes').style.display = 'block'
+            }
+            else {
+                document.getElementById('execOperacoes').style.display = 'none'
+            }
+        }
+    </script>
+
+    <script>
+        function calcularIMC() {
+            var txtPeso = document.getElementById('txtPeso')
+            var txtAltura = document.getElementById('txtAltura')
+            var resultado = document.getElementById('resultado')
+            var diagnostico = document.getElementById('diagnostico')
+            var peso = Number(txtPeso.value)
+            var altura = Number(txtAltura.value)
+            var calculoFinal = peso / (altura ** 2)
+
+            if (calculoFinal < 17) {
+                diagnostico.innerText = `MUITO ABAIXO DO PESO`
+                diagnostico.style.color = "gray"
+            }
+            else if (calculoFinal >= 17 && calculoFinal <= 18.49) {
+                diagnostico.innerText = `ABAIXO DO PESO`
+                diagnostico.style.color = "gray"
+            }
+            else if (calculoFinal >= 18.5 && calculoFinal <= 24.99) {
+                diagnostico.innerText = `PESO NORMAL`
+                diagnostico.style.color = "green"
+            }
+            else if (calculoFinal >= 25 && calculoFinal <= 29.99) {
+                diagnostico.innerText = `ACIMA DO PESO`
+                diagnostico.style.color = "orange"
+            }
+            else if (calculoFinal >= 30 && calculoFinal <= 34.99) {
+                diagnostico.innerText = `OBESIDADE I`
+                diagnostico.style.color = "red"
+            }
+            else if (calculoFinal >= 35 && calculoFinal <= 39.99) {
+                diagnostico.innerText = `OBESIDADE II (SEVERA)`
+                diagnostico.style.color = "violet"
+            }
+            else if (calculoFinal > 40) {
+                diagnostico.innerText = `OBESIDADE MÓRBIDA`
+                diagnostico.style.color = "black"
+            }
+            resultado.innerText = `Altura: ${altura} cm   /   Peso: ${peso} kg   /   Seu IMC é: ${calculoFinal}`
+        }
+    </script>
+
+    <script>
+        function calcularNotas(){
+            
+        }
+    </script>
+</body>
+
+</html>
