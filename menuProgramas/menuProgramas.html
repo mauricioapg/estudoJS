@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula JS</title>
+    <link href="estiloMenuProgramas.css" type="text/css" rel="stylesheet">
+</head>
+
+<body onload="criarSaudacao()">
+    <header>
+        <h1>Estudo de JS</h1>
+    </header>
+    <section>
+        <h2 id="saudacao"></h2>
+        <!--Saudação muda de acordo com o horário (bom dia, boa tarde, boa noite)-->
+        <h3>Escolha abaixo o programa que deseja utilizar:</h3>
+        <table>
+            <tr>
+                <td>
+                    <p>
+                        <input type="button" id="calcIMC" onclick=" exibirTelaIMC()" value="Cálculo de IMC">
+                    </p>
+                    <p>
+                        <input type="button" id="calcNotas" onclick="exibirTelaNotas()" value="Cálculo de Notas">
+                    </p>
+                    <p>
+                        <input type="button" id="opMath" onclick="exibirTelaOperacoes()" value="Oper. Matemáticas">
+                    </p>
+                </td>
+                <td>
+                    <p>
+                        <input type="button" id="calcIMC" onclick=" exibirTelaEstacionamento();verificarVagas()"
+                            value="Estacionamento de carros">
+                    </p>
+                    <p>
+                        <input type="button" id="calcIMC" onclick=" exibirTelaIMC()" value="">
+                    </p>
+                    <p>
+                        <input type="button" id="calcIMC" onclick=" exibirTelaIMC()" value="">
+                    </p>
+                </td>
+            </tr>
+        </table>
+        <h5>-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        </h5>
+        <div id="execCalcIMC" class="tela" style="display: none">
+            <h4>Calcule seu IMC</h4>
+            <p><input type="number" name="txtPeso" id="txtPeso" placeholder="Informe seu peso"></p>
+            <p><input type="number" name="txtAltura" id="txtAltura" placeholder="Informe sua altura"></p>
+            <p><input type="button" style="background-color: blue;color: white  " value="Calcular IMC"
+                    onclick="calcularIMC()">
+            </p>
+            <h4 id="resultado"></h4>
+            <strong>
+                <h4 id="diagnostico"></h4>
+            </strong>
+        </div>
+        <div id="execCalcNotas" class="tela" style="display: none">
+            <h4>Calcule suas Notas</h4>
+            <p><input type="number" name="txtNota1" id="txtNota1" placeholder="Nota 1"></p>
+            <p><input type="number" name="txtNota2" id="txtNota2" placeholder="Nota 2"></p>
+            <p><input type="number" name="txtNota3" id="txtNota3" placeholder="Nota 3"></p>
+            <p><input type="button" style="background-color: blue;color: white  " value="Calcular Média"
+                    onclick="calcularNotas()">
+            </p>
+            <h4 id="mediaAritmetica"></h4>
+            <strong>
+                <h4 id="aprovacao"></h4>
+            </strong>
+        </div>
+        <div id="execOperacoes" class="tela" style="display: none">
+            <h4>Faça operações matemáticas</h4>
+            <p>
+                <label>Escolha a operação:<label><br><br>
+                        <input type="radio" name="checkBox" id="chkBoxSoma" value="soma"
+                            onclick="escolherOperacao(0)">Soma
+                        <input type="radio" name="checkBox" id="chkBoxSubtracao" value="subtracao"
+                            onclick="escolherOperacao(1)">Subtração
+                        <input type="radio" name="checkBox" id="chkBoxMultiplicacao" value="multiplicacao"
+                            onclick="escolherOperacao(2)">Multiplicação
+                        <input type="radio" name="checkBox" id="chkBoxDivisao" value="divisao"
+                            onclick="escolherOperacao(3)">Divisão<br><br>
+            </p>
+            <div id="valores" style="display: none">
+                <strong><label id="opEscolhida" style="color: blue"></label></strong>
+                <p><input type="number" name="txtValor1" id="txtValor1" placeholder="Digite um valor"></p>
+                <p><input type="number" name="txtValor2" id="txtValor2" placeholder="Digite um valor"></p>
+                <p><input type="button" style="background-color: blue;color: white  " value="Calcular"
+                        onclick="efetuarOperacao()">
+                </p>
+                <h4 id="resposta"></h4>
+            </div>
+        </div>
+        <table>
+            <tr>
+                <td>
+                    <div id="execEstacionamento1" class="tela" style="display: none">
+                        <h4>Estacionamento</h4>
+                        <strong><label>Ocupação atual: </label></strong>
+                        <p id="resultVagas"></p>
+
+                        <p><input type="button" value="Incluir carro" onclick="exibirInclusaoCarro()">
+                            <input type="button" value="Retirar carro" onclick="exibirRetiradaCarro()"></p>
+                    </div>
+                </td>
+                <td>
+                    <div id="execEstacionamento2" class="tela" style="display: none">
+                        <label>Nº da Vaga: </label>
+                        <select id="vagasDisponiveis">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                        <p><input type="text" id="modeloCarro" placeholder="Modelo do carro">
+                            <label id="erro" style="color: red"> </label></p>
+                        <p><input type="button" style="background-color: blue;color: white  " value="Incluir"
+                                onclick="incluirCarro()">
+                        </p>
+                    </div>
+                    <div id="execEstacionamento3" class="tela" style="display: none">                            
+                        </div>
+                </td>
+            </tr>
+        </table>
+
+
+    </section>
+    <footer>
+        <p>&copy; Estudo de JS - Mauricio Ap. Gabriel Dias</p>
+    </footer>
+    <script src="scriptMenu.js"></script>
+    <script src="scriptIMC.js"></script>
+    <script src="scriptNotas.js"></script>
+    <script src="scriptOperacoes.js"></script>
+    <script src="scriptEstacionamento.js"></script>
+</body>
+
+</html>
