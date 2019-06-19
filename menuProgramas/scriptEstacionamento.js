@@ -13,13 +13,13 @@ function listarVagas(v = []) {
 }
 
 function verificarVagas() {
-    vagas = ['Corsa', 'Gol', 'Fiorino', null, null]; //variável global (declarada ser a palavra reservada VAR)
+    vagas = ['Corsa', 'Gol', 'Fiorino', null, 'Fiesta', 'Santana', null, 'Focus', 'Fusca', 'Celta', null, null]; //variável global (declarada ser a palavra reservada VAR)
     resultVagas = document.getElementById('resultVagas');    
     resultVagas.innerHTML = listarVagas(vagas);
 }
 
 function incluirCarro() {    
-    var vagaEscolhida = document.getElementById('vagasDisponiveis').value
+    var vagaEscolhida = document.getElementById('vagasDisponiveis1').value
     var carro = document.getElementById('modeloCarro').value
     erro = document.getElementById('erro')
     if (vagas[vagaEscolhida - 1] == null) {
@@ -32,12 +32,21 @@ function incluirCarro() {
     resultVagas.innerHTML = listarVagas(vagas);
 }
 
+function retirarCarro(){    
+    var vagaEscolhida = document.getElementById('vagasDisponiveis2').value
+    var carroRetirado = vagas[vagaEscolhida - 1]
+    vagas[vagaEscolhida -1] = null
+    resultVagas.innerHTML = listarVagas(vagas);
+    document.getElementById('vagaLiberada').innerText = `O veículo ${carroRetirado} foi retirado. Vaga ${vagaEscolhida} está vazia.`
+}
+
 function exibirInclusaoCarro(){
     document.getElementById('execEstacionamento3').style.display = 'none'
     document.getElementById('execEstacionamento2').style.display = 'block'
 }
 
 function exibirRetiradaCarro(){
+    document.getElementById('vagaLiberada').innerText = " "
     document.getElementById('execEstacionamento2').style.display = 'none'
     document.getElementById('execEstacionamento3').style.display = 'block'
 }

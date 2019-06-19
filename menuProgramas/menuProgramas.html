@@ -32,11 +32,12 @@
                 </td>
                 <td>
                     <p>
-                        <input type="button" id="calcIMC" onclick=" exibirTelaEstacionamento();verificarVagas()"
+                        <input type="button" id="estacionamento" onclick=" exibirTelaEstacionamento();verificarVagas()"
                             value="Estacionamento de carros">
                     </p>
                     <p>
-                        <input type="button" id="calcIMC" onclick=" exibirTelaIMC()" value="">
+                        <input type="button" id="conversorMoedas" onclick=" exibirTelaConversorMoedas()"
+                            value="Conversor de Moedas">
                     </p>
                     <p>
                         <input type="button" id="calcIMC" onclick=" exibirTelaIMC()" value="">
@@ -102,31 +103,90 @@
                         <strong><label>Ocupação atual: </label></strong>
                         <p id="resultVagas"></p>
 
-                        <p><input type="button" value="Incluir carro" onclick="exibirInclusaoCarro()">
-                            <input type="button" value="Retirar carro" onclick="exibirRetiradaCarro()"></p>
+                        <p><input type="button" value="Incluir veículo" onclick="exibirInclusaoCarro()">
+                            <input type="button" value="Retirar veículo" onclick="exibirRetiradaCarro()"></p>
                     </div>
                 </td>
                 <td>
                     <div id="execEstacionamento2" class="tela" style="display: none">
-                        <label>Nº da Vaga: </label>
-                        <select id="vagasDisponiveis">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                        <p><input type="text" id="modeloCarro" placeholder="Modelo do carro">
+                        <strong><label>Inclusão de veículo</label></strong>
+                        <p>
+                            <label>Nº da Vaga: </label>
+                            <select id="vagasDisponiveis1">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                        </p>
+                        <p><input type="text" id="modeloCarro" placeholder="Modelo do veículo">
                             <label id="erro" style="color: red"> </label></p>
                         <p><input type="button" style="background-color: blue;color: white  " value="Incluir"
                                 onclick="incluirCarro()">
                         </p>
                     </div>
-                    <div id="execEstacionamento3" class="tela" style="display: none">                            
-                        </div>
+                    <div id="execEstacionamento3" class="tela" style="display: none">
+                        <strong><label>Retirada de veículo</label></strong>
+                        <p>
+                            <label>Nº da Vaga: </label>
+                            <select id="vagasDisponiveis2">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                        </p>
+                        <p><input type="button" style="background-color: blue;color: white  " value="Retirar"
+                                onclick="retirarCarro()">
+                        </p>
+                        <div id="vagaLiberada" style="color: green"></div>
+                    </div>
                 </td>
             </tr>
         </table>
+        <div id="execConversorMoedas" class="tela" style="display: none">
+            <h4>Conversor de Moedas</h4>
+            <p><input type="number" id="txtValor" placeholder="Digite um valor"></p>
+            <p>
+                <label>De: </label>
+                <select id="paises1">
+                    <option value="brasil">Brasil</option>
+                    <option value="usa">USA</option>
+                    <option value="chile">Chile</option>
+                </select>
+            </p> 
+            <p><input type="button" style="background-color: gray;color: black  " value="Inverter"
+                onclick="inverterEscolhas()">
+        </p>           
+            <p>
+                <label>Para: </label>
+                <select id="paises2">
+                    <option value="brasil">Brasil</option>
+                    <option value="usa">USA</option>
+                    <option value="chile">Chile</option>
+                </select>
+            </p>
+            <p><input type="button" style="background-color: blue;color: white  " value="Converter Moeda"
+                onclick="converterMoeda()">
+        </p>
+            <div id="resultadoConversao" style="color: green"></div>
+        </div>
 
 
     </section>
@@ -138,6 +198,7 @@
     <script src="scriptNotas.js"></script>
     <script src="scriptOperacoes.js"></script>
     <script src="scriptEstacionamento.js"></script>
+    <script src="scriptConversorMoedas.js"></script>
 </body>
 
 </html>

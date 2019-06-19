@@ -19,6 +19,7 @@ function exibirTelaIMC() {
     document.getElementById('execCalcNotas').style.display = 'none'
     document.getElementById('execOperacoes').style.display = 'none'
     document.getElementById('execEstacionamento1').style.display = 'none'
+    document.getElementById('execConversorMoedas').style.display = 'none'
     var estadoDivIMC = document.getElementById('execCalcIMC').style.display
     if (estadoDivIMC == 'none') {
         document.getElementById('execCalcIMC').style.display = 'block'
@@ -32,6 +33,7 @@ function exibirTelaNotas() {
     document.getElementById('execCalcIMC').style.display = 'none'
     document.getElementById('execOperacoes').style.display = 'none'
     document.getElementById('execEstacionamento1').style.display = 'none'
+    document.getElementById('execConversorMoedas').style.display = 'none'
     var estadoDivNotas = document.getElementById('execCalcNotas').style.display
     if (estadoDivNotas == 'none') {
         document.getElementById('execCalcNotas').style.display = 'block'
@@ -45,6 +47,7 @@ function exibirTelaOperacoes() {
     document.getElementById('execCalcNotas').style.display = 'none'
     document.getElementById('execCalcIMC').style.display = 'none'
     document.getElementById('execEstacionamento1').style.display = 'none'
+    document.getElementById('execConversorMoedas').style.display = 'none'
     var estadoDivOperacoes = document.getElementById('execOperacoes').style.display
     if (estadoDivOperacoes == 'none') {
         document.getElementById('execOperacoes').style.display = 'block'
@@ -58,11 +61,26 @@ function exibirTelaEstacionamento() {
     document.getElementById('execCalcNotas').style.display = 'none'
     document.getElementById('execCalcIMC').style.display = 'none'
     document.getElementById('execOperacoes').style.display = 'none'
+    document.getElementById('execConversorMoedas').style.display = 'none'
     var estadoDivEstacionamento = document.getElementById('execEstacionamento1').style.display
     if (estadoDivEstacionamento == 'none') {
         document.getElementById('execEstacionamento1').style.display = 'block'
     }
     else {
         document.getElementById('execEstacionamento1').style.display = 'none'
+    }
+}
+
+function exibirTelaConversorMoedas() {
+    document.getElementById('execCalcNotas').style.display = 'none'
+    document.getElementById('execCalcIMC').style.display = 'none'
+    document.getElementById('execOperacoes').style.display = 'none'
+    document.getElementById('execEstacionamento1').style.display = 'none'
+    var estadoDivEstacionamento = document.getElementById('execEstacionamento1').style.display
+    if (estadoDivEstacionamento == 'none') {
+        document.getElementById('execConversorMoedas').style.display = 'block'
+    }
+    else {
+        document.getElementById('execConversorMoedas').style.display = 'none'
     }
 }
